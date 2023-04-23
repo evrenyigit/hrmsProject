@@ -2,10 +2,12 @@ package com.example.hrms.entities.concretes;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import java.util.List;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisementList"})
 @Data
 @Entity
 @Table(name="employers",schema = "hrms")
@@ -15,13 +17,13 @@ public class Employer{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-	@Column(name="company_name")
+	@Column(name="company_name",nullable = false)
 	private String companyName;
 	
-	@Column(name="web_site")
+	@Column(name="web_site",nullable = false)
 	private String webAddress;
 	
-	@Column(name="phone_number")
+	@Column(name="phone_number",nullable = false)
 	private String phoneNumber;
 	
 	@OneToOne
@@ -45,6 +47,9 @@ public class Employer{
 			inverseJoinColumns = @JoinColumn (name = "employee_confirm_id")
 	)
 	private List<EmployeeConfirm> employeeConfirmList;
+
+	@OneToMany(mappedBy = "employer")
+	private List<JobAdvertisement> jobAdvertisementList;
 
 	public Employer(int id,String companyName, String webAddress, String phoneNumber,User user,
 					List<VerificationCode> verificationCodeList, List<EmployeeConfirm> employeeConfirmList) {

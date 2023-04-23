@@ -1,14 +1,13 @@
 package com.example.hrms.entities.concretes;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
+import java.util.List;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisementList"})
 @Data
 @Entity
 @Table(name="job_titles",schema = "hrms")
@@ -19,8 +18,12 @@ public class JobTitle {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="job_name")
+	@Column(name="job_name",nullable = false)
 	private String jobName;
+
+	//job advertisement, job title ile maplendi.
+	@OneToMany(mappedBy = "jobTitle")
+	private List<JobAdvertisement> jobAdvertisementList;
 	
 	public JobTitle(int id, String jobName) {
 		this.id = id;

@@ -3,6 +3,7 @@ package com.example.hrms.api.controllers;
 import com.example.hrms.business.abstracts.EmployeeConfirmService;
 import com.example.hrms.core.utilities.DataResult;
 import com.example.hrms.entities.concretes.EmployeeConfirm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ public class EmployeeConfirmsController {
 
     private EmployeeConfirmService employeeConfirmService;
 
+    @Autowired
     public EmployeeConfirmsController(EmployeeConfirmService employeeConfirmService){
         this.employeeConfirmService = employeeConfirmService;
     }
