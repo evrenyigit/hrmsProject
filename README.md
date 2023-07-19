@@ -1,69 +1,66 @@
-# Human Management Resource System
- HR system for jobs, candidates and employers
- 
- ** Aşağıdaki isterlerin hepsi sağlandı **
+# Human Resource Management System
+ HR system for jobs, candidates, and employers
 
-ÖNEMLİ 1 : Doğrulama işlemleri için sahte servisler oluşturunuz. Örneğin, gerçekten mail göndermeniz gerekmez.
+All of the following requirements have been met
 
-ÖNEMLİ 2 : Gereksinimler dışında kodlama yapmayınız. Bu, Proje yönetimi ve ALM (Application LifeCycle Management) kurallarına aykırı bir yazılım geliştirici davranışıdır.
+IMPORTANT 1: Create dummy services for authentication processes. For example, there is no need to actually send emails.
 
+IMPORTANT 2: Do not code beyond the requirements. This is against the principles of Project Management and Application Lifecycle Management (ALM).
 
+Req 1: Job seekers should be able to register in the system.
 
-Req 1 : İş Arayanlar sisteme kayıt olabilmelidir.
+Acceptance Criteria:
 
-Kabul Kriterleri:
+During registration, users are prompted for their name, surname, national identification number (TC No), birth year, email, password, and password confirmation.
+All fields are mandatory, and users are informed accordingly.
+Registration is completed by validating the information through MERNIS (a national identification system).
+If validation fails, users are notified.
+If the email or national identification number is already registered, the registration process is not completed, and users are informed.
+Email verification is required for successful registration.
 
-Kayıt sırasında kullanıcıdan ad, soyad, tcno, doğum yılı, e-Posta, şifre, şifre tekrarı bilgileri istenir.
-Tüm alanlar zorunludur. Kullanıcı bilgilendirilir.
-Mernis doğrulaması yapılarak sisteme kayıt gerçekleştirilir.
-Doğrulama geçerli değilse kullanıcı bilgilendirilir.
-Daha önce kayıtlı bir e-posta veya tcno var ise kayıt gerçekleşmez. Kullanıcı bilgilendirilir.
-Kayıdın gerçekleşmesi için e-posta doğrulaması gerekir.
+Req 2: Employers should be able to register in the system.
 
-Req 2 : İş verenler sisteme kayıt olabilmelidir.
+Acceptance Criteria:
 
-Kabul Kriterleri:
+During registration, employers are prompted for their company name, website, email (matching the website domain), phone number, password, and password confirmation. This is to ensure that only companies can join the system.
+All fields are mandatory, and users are informed accordingly.
+Company registrations are validated in two ways. Email verification is required for successful registration, and it also requires approval from HRMS personnel (ours :))
+If the email is already registered, the registration process is not completed, and users are informed.
 
-Kayıt sırasında kullanıcıdan şirket adı, web sitesi, web sitesi ile aynı domaine sahip e-posta, telefon, şifre, şifre tekrarı bilgileri istenir. Burada amaç sisteme şirket olmayanların katılmasını engellemektir.
-Tüm alanlar zorunludur. Kullanıcı bilgilendirilir.
-Şirket kayıtları iki şekilde doğrulanır. Kayıdın gerçekleşmesi için e-posta doğrulaması gerekir. HRMS personelinin (bizim :)) onayı gerekmektedir.
-Daha önce kayıtlı bir e-posta var ise kayıt gerçekleşmez. Kullanıcı bilgilendirilir.
+Req 3: General job position names can be added to the system, such as Software Developer, Software Architect.
 
-Req 3 : Sisteme genel iş pozisyonu isimleri eklenebilmelidir. Örneğin Software Developer, Software Architect.
+Acceptance Criteria:
 
-Kabul Kriterleri:
+These positions cannot be duplicated, and users are alerted.
 
-Bu pozisyonlar tekrar edemez. Kullanıcı uyarılır.
+Req 4: Employers can be listed. (Full list only)
 
-Req 4 : İş verenler listelenebilmelidir. (Sadece tüm liste)
+Req 5: Job seekers can be listed. (Full list only)
 
-Req 5 : İş arayanlar listelenebilmelidir. (Sadece tüm liste)
+Req 6: Job positions can be listed. (Full list only)
 
-Req 6 : İş pozisyonları listelenebilmelidir. (Sadece tüm liste)
+Req 7: Employers can add job postings to the system.
+• In the job posting form:
+• A general job position can be selected from a dropdown list (e.g., Java Developer) (Required)
+• Job description can be entered (e.g., proficient in JAVA, C#, etc. for our company) (Required)
+• City information can be selected from a dropdown list (Required)
+• Minimum and maximum salary range can be entered (Optional)
+• Number of open positions (Required)
+• Application deadline and quantity can be entered.
 
-Req 7 : İş verenler sisteme iş ilanı ekleyebilmelidir.
-•	İş ilanı formunda;
-•	Seçilebilir listeden (dropdown) genel iş pozisyonu seçilebilmelidir.(Örneğin Java Developer)(Zorunlu)
-•	İş tanımı girişi yapılabilmelidir. (Örneğin; firmamız için JAVA, C# vb. dillere hakim....)(Zorunlu)
-•	Şehir bilgisi açılır listeden seçilebilmelidir. (Zorunlu)
-•	Maaş skalası için min-max girişi yapılabilmelidir. (Opsiyonel)
-•	Açık pozisyon. (Zorunlu)
-•	Son başvuru tarihi girişi yapılabilmelidir adedi girişi yapılabilmelidir.
+Req 8: All active job postings in the system can be listed.
+• The list should be presented in a table format.
+• The list should include the company name, general job position name, number of open positions, publication date, and application deadline.
 
-Req 8 : Sistemdeki tüm aktif iş ilanları listelenebilmelidir.
-•	Liste, tablo formunda gelmelidir.
-•	Listede firmadı, genel iş pozisyonu adı, açık pozisyon adedi, yayın tarihi, son başvuru tarihi bilgileri olmalıdır.
+Req 9: All active job postings in the system can be listed by date.
+• The list should be presented in a table format.
+• The list should include the company name, general job position name, number of open positions, publication date, and application deadline.
 
-Req 9 : Sistemdeki tüm aktif iş ilanları tarihe göre listelenebilmelidir.
-•	Liste, tablo formunda gelmelidir.
-•	Listede firmadı, genel iş pozisyonu adı, açık pozisyon adedi, yayın tarihi, son başvuru tarihi bilgileri olmalıdır.
+Req 10: All active job postings for a specific company can be listed.
+• The list should be presented in a table format.
+• The list should include the company name, general job position name, number of open positions, publication date, and application deadline.
 
-Req 10 : Sistemde bir firmaya ait tüm aktif iş ilanları listelenebilmelidir.
-•	Liste, tablo formunda gelmelidir.
-•	Listede firmadı, genel iş pozisyonu adı, açık pozisyon adedi, yayın tarihi, son başvuru tarihi bilgileri olmalıdır.
-
-Req 11 : İş verenler sistemdeki bir ilanı kapatabilmelidir. (Pasif ilan)
-
+Req 11: Employers can deactivate a job posting in the system. (Inactive posting)
 
 
 
